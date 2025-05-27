@@ -1,0 +1,23 @@
+<div class="flex w-screen h-screen justify-center items-center">
+  <div
+    class="flex flex-col justify-center items-center shadow-2xl min-w-md min-h-[700px] w-8/10 h-full sm:w-1/4 md:h-8/10"
+  >
+    <header
+      class="flex justify-center text-white items-center w-full h-1/10 shadow-2xl mb-2 bg-black hover:bg-white hover:text-black transition duration-500"
+    >
+      <h1>My Gallery :)</h1>
+    </header>
+    <section class="flex w-9/10 h-8/10 bg-amber-300 m-2 shadow-2xl relative">
+      <img ngSrc="/elphet.jpg" alt="" fill />
+    </section>
+    <div class="flex w-full h-1/10 justify-center items-center">
+      <button (click)="openImageUpload()"
+        class="w-3/10 h-10 bg-black text-white hover:bg-white hover:text-black transition duration-500 border-1 border-black cursor-pointer"
+      >
+        let's Share!
+      </button>
+    </div>
+  </div>
+  <app-image-upload-modal   *ngIf="showModal"
+    (close)="onModalClosed()"></app-image-upload-modal>
+</div>
