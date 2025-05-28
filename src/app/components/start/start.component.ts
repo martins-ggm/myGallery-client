@@ -2,7 +2,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 // import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { ImageUploadModalComponent } from '../image-upload-modal/image-upload-modal.component';
-
+import { Image } from '../../models/images.model';
 
 
 @Component({
@@ -15,40 +15,28 @@ export class StartComponent {
  showModal = false;
 
   openImageUpload() {
-    console.log('Abrindo modal...');
     this.showModal = true;
   }
 
   onModalClosed() {
-    console.log('Modal fechado...');
+
     this.showModal = false;
   }
 
 
- // private http = inject(HttpClient)
 
-
-  headerTitle = "My Gallery :)"
+    headerTitle = "My Gallery :)"
 
   changeTitle = (SecondTitle: "Our Gallery :D") => {
 
     this.headerTitle = SecondTitle;
   }
 
-    // sendImage = () => {
-
-      //this.http.post<any>('/image',)
-
-
-
-    //}
-
-
-
-
-
-
- 
+onImageUploaded(uploadedImage: Image) {
+  console.log('Imagem enviada:', uploadedImage);
+  // Aqui você pode atualizar a galeria ou mostrar uma mensagem
+  this.showModal = false; // Fecha o modal
+}
 
 
 }

@@ -15,7 +15,13 @@
       </button>
     </div>
 
-    <input type="file" id="fileInput" class="hidden" accept="image/*" />
+    <input
+      type="file"
+      id="fileInput"
+      class="hidden"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+    />
 
     <label
       for="fileInput"
@@ -26,8 +32,19 @@
 
     <button
       class="w-full h-10 bg-black text-white hover:bg-white hover:text-black transition duration-500 border border-black cursor-pointer"
+      (click)="uploadImage()"
+      [disabled]="!selectedFile || selectedFile.name === 'empty'"
     >
       Enviar Imagem
     </button>
+    <div
+      *ngIf="imageData.file && imageData.file.name !== 'empty'"
+      class="mt-2 text-sm"
+    >
+      Arquivo selecionado: {{ imageData.name }}
+    </div>
+    <div *ngIf="errorMessage" class="mt-2 text-sm text-red-500">
+      {{ errorMessage }}
+    </div>
   </div>
 </div>

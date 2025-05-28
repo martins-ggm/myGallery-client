@@ -19,5 +19,5 @@
     </div>
   </div>
   <app-image-upload-modal   *ngIf="showModal"
-    (close)="onModalClosed()"></app-image-upload-modal>
+    (close)="onModalClosed()" (uploadSuccess)="onImageUploaded($event)"></app-image-upload-modal>
 </div>
